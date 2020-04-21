@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+const alias = require('./webpack.alias')
 const rules = require('./webpack.rules')
 const plugins = require('./webpack.plugins')
 
@@ -11,8 +12,9 @@ module.exports = {
   module: {
     rules
   },
-  plugins: plugins,
+  plugins,
   resolve: {
+    alias,
     extensions: ['.js', '.ts', '.jsx', '.tsx', '.css']
   }
 }

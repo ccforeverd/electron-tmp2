@@ -1,5 +1,10 @@
 {
   "compilerOptions": {
+    "target": "esnext",
+    "strict": true,
+    "importHelpers": true,
+    "allowSyntheticDefaultImports": true,
+    "jsx": "preserve",
     "allowJs": true,
     "module": "commonjs",
     "skipLibCheck": true,
@@ -10,11 +15,30 @@
     "outDir": "dist",
     "moduleResolution": "node",
     "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "types": [
+    ],
     "paths": {
-      "*": ["node_modules/*"]
-    }
+      "*": ["node_modules/*"],
+      "@/*": ["./src/*"],
+      "@components/*": ["./src/components/*"],
+      "@preloads/*": ["./src/preloads/*"]
+    },
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ]
   },
   "include": [
-    "src/**/*"
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "tests/**/*.ts",
+    "tests/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }

@@ -26,6 +26,12 @@
  * ```
  */
 
-import './index.css'
+import Vue, { VNode } from 'vue'
 
-console.log('👋 This message is being logged by "renderer.js", included via webpack')
+import './index.css'
+import App from './components/App'
+
+// eslint-disable-next-line no-new
+new Vue({
+  render: (h): VNode => h(App)
+}).$mount('#app')

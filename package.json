@@ -51,14 +51,25 @@
         [
           "@electron-forge/plugin-webpack",
           {
-            "mainConfig": "./webpack.main.config.js",
+            "mainConfig": "./build/webpack.main.config.js",
             "renderer": {
-              "config": "./webpack.renderer.config.js",
+              "config": "./build/webpack.renderer.config.js",
               "entryPoints": [
                 {
-                  "html": "./src/index.html",
-                  "js": "./src/renderer.ts",
-                  "name": "main_window"
+                  "name": "main_window",
+                  "html": "./src/public/index.html",
+                  "js": "./src/windows/main/renderer.ts",
+                  "preload": {
+                    "js": "./src/windows/main/preload.ts"
+                  }
+                },
+                {
+                  "name": "excel_window",
+                  "html": "./src/public/index.html",
+                  "js": "./src/windows/excel/renderer.ts",
+                  "preload": {
+                    "js": "./src/windows/excel/preload.ts"
+                  }
                 }
               ]
             }
@@ -94,6 +105,8 @@
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0",
-    "pre-commit": "^1.2.2"
+    "pre-commit": "^1.2.2",
+    "vue": "^2.6.11",
+    "vue-property-decorator": "^8.4.1"
   }
 }

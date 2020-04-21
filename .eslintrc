@@ -12,5 +12,10 @@
     "plugin:import/errors",
     "plugin:import/warnings"
   ],
-  "parser": "@typescript-eslint/parser"
+  "parser": "@typescript-eslint/parser",
+  "rules": {
+    "import/no-unresolved": 0
+  },
+  "globals": {
+  }
 }
