@@ -2,5 +2,5 @@
 
 - [x] add standard
 - [x] add lint
-- [ ] add pre-commit
-- [ ] add lint-staged
+- [x] add pre-commit
+- [x] add lint-staged
