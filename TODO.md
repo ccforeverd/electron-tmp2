@@ -6,3 +6,4 @@
 - [x] add lint-staged
 - [ ] add windows/tabs
 - [ ] add createWindow in all windows
+- [ ] add UI Vuetify
