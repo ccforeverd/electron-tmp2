@@ -23,5 +23,12 @@ module.exports = [
         transpileOnly: true
       }
     }
+  },
+  {
+    test: /\.tsx$/,
+    exclude: /(node_modules|\.webpack)/,
+    use: {
+      loader: 'babel-loader'
+    }
   }
 ]
