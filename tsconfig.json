@@ -19,10 +19,24 @@
     "types": [
     ],
     "paths": {
-      "*": ["node_modules/*"],
-      "@/*": ["./src/*"],
-      "@components/*": ["./src/components/*"],
-      "@preloads/*": ["./src/preloads/*"]
+      "*": [
+        "node_modules/*"
+      ],
+      "@/*": [
+        "./src/*"
+      ],
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@config/*": [
+        "./src/config/*"
+      ],
+      "@preloads/*": [
+        "./src/preloads/*"
+      ],
+      "@windows/*": [
+        "./src/windows/*"
+      ]
     },
     "lib": [
       "esnext",

@@ -1,7 +1,7 @@
 import { app, BrowserWindow } from 'electron'
 
-declare const MAIN_WINDOW_WEBPACK_ENTRY: string
-declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string
+import { createWindow as createMainWindow } from '@windows/main'
+import { createWindow as createTabsWindow } from '@windows/tabs'
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
@@ -10,30 +10,14 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
 
 app.allowRendererProcessReuse = true
 
-const createWindow = (): void => {
-  // Create the browser window.
-  const mainWindow = new BrowserWindow({
-    height: 600,
-    width: 800,
-    webPreferences: {
-      nodeIntegration: false,
-      webSecurity: true,
-      preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY
-    }
-  })
-
-  // and load the index.html of the app.
-  mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY)
-  console.log(111111, MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY, MAIN_WINDOW_WEBPACK_ENTRY)
-
-  // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+const store = {
+  createWindow: createTabsWindow
 }
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', createWindow)
+app.on('ready', store.createWindow)
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
@@ -48,7 +32,7 @@ app.on('activate', () => {
   // On OS X it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   if (BrowserWindow.getAllWindows().length === 0) {
-    createWindow()
+    store.createWindow()
   }
 })
 

@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+const alias = require('./webpack.alias')
+
 module.exports = {
   /**
    * This is the main entry point for your application, it's the first file
@@ -9,6 +12,7 @@ module.exports = {
     rules: require('./webpack.rules')
   },
   resolve: {
+    alias,
     extensions: ['.js', '.ts', '.jsx', '.tsx', '.css', '.json']
   }
 }

@@ -64,6 +64,14 @@
                   }
                 },
                 {
+                  "name": "tabs_window",
+                  "html": "./src/public/index.html",
+                  "js": "./src/windows/tabs/renderer.ts",
+                  "preload": {
+                    "js": "./src/windows/tabs/preload.ts"
+                  }
+                },
+                {
                   "name": "excel_window",
                   "html": "./src/public/index.html",
                   "js": "./src/windows/excel/renderer.ts",
@@ -98,6 +106,7 @@
     "@vue/babel-preset-jsx": "^1.1.2",
     "babel-loader": "^8.1.0",
     "css-loader": "^3.0.0",
+    "deepmerge": "^4.2.2",
     "electron": "8.2.3",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.1",
@@ -105,10 +114,13 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
+    "fibers": "^4.0.2",
     "fork-ts-checker-webpack-plugin": "^3.1.1",
     "lint-staged": "^10.1.7",
     "node-loader": "^0.6.0",
     "pre-commit": "^1.2.2",
+    "sass": "^1.26.3",
+    "sass-loader": "^8.0.2",
     "style-loader": "^0.23.1",
     "ts-loader": "^6.2.1",
     "typescript": "^3.7.0"
@@ -116,6 +128,7 @@
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0",
     "vue": "^2.6.11",
-    "vue-property-decorator": "^8.4.1"
+    "vue-property-decorator": "^8.4.1",
+    "vuetify": "^2.2.23"
   }
 }
