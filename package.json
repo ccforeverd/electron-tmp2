@@ -108,6 +108,7 @@
     "@vue/eslint-config-standard": "^5.1.2",
     "@vue/eslint-config-typescript": "^5.0.2",
     "babel-loader": "^8.1.0",
+    "babel-plugin-component": "^1.1.1",
     "css-loader": "^3.0.0",
     "deepmerge": "^4.2.2",
     "electron": "8.2.3",
@@ -132,6 +133,7 @@
   "dependencies": {
     "@mdi/font": "^5.1.45",
     "electron-squirrel-startup": "^1.0.0",
+    "element-ui": "^2.13.1",
     "roboto-fontface": "^0.10.0",
     "vue": "^2.6.11",
     "vue-property-decorator": "^8.4.1",
