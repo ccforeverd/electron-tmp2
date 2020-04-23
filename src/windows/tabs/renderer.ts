@@ -27,16 +27,19 @@
  */
 
 import Vue, { VNode } from 'vue'
-import Vuetify from 'vuetify'
-import 'vuetify/dist/vuetify.min.css'
+
+// import Vuetify from 'vuetify/lib'
+// import 'vuetify/dist/vuetify.min.css'
+// import 'roboto-fontface/css/roboto/roboto-fontface.css'
+// import '@mdi/font/css/materialdesignicons.css'
 
 import './index.css'
 import App from './components/App'
 
-Vue.use(Vuetify)
+// Vue.use(Vuetify)
 
 // eslint-disable-next-line no-new
 new Vue({
-  vuetify: new Vuetify({}),
+  // vuetify: new Vuetify({}),
   render: (h): VNode => h(App)
 }).$mount('#app')

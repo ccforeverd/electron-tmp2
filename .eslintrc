@@ -1,4 +1,5 @@
 {
+  "root": true,
   "env": {
     "browser": true,
     "es6": true,
@@ -7,12 +8,18 @@
   "extends": [
     "standard",
     // "eslint:recommended",
+    // "plugin:vue/essential",
+    // "@vue/standard",
+    // "@vue/typescript/recommended"
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:import/errors",
     "plugin:import/warnings"
   ],
   "parser": "@typescript-eslint/parser",
+  // "parserOptions": {
+    // "ecmaVersion": 2020
+  // },
   "rules": {
     "import/no-unresolved": 0
   },
