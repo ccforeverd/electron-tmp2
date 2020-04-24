@@ -30,6 +30,7 @@ import Vue, { VNode } from 'vue'
 
 // vuetify
 import Vuetify from 'vuetify/lib'
+import colors from 'vuetify/lib/util/colors'
 import 'vuetify/dist/vuetify.min.css'
 // import 'roboto-fontface/css/roboto/roboto-fontface.css' // 有引入字体报错
 // import '@mdi/font/css/materialdesignicons.css' // 有引入字体报错
@@ -47,8 +48,13 @@ Vue.use(ElementUI)
 // eslint-disable-next-line no-new
 new Vue({
   vuetify: new Vuetify({
-    theme: {
-      dark: false
+    themes: {
+      dark: {
+        primary: colors.purple,
+        secondary: colors.grey.darken1,
+        accent: colors.shades.black,
+        error: colors.red.accent3
+      }
     }
   }),
   render: (h): VNode => h(App)
