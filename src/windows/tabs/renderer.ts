@@ -27,16 +27,35 @@
  */
 
 import Vue, { VNode } from 'vue'
-import Vuetify from 'vuetify'
+
+// vuetify
+import Vuetify from 'vuetify/lib'
+import colors from 'vuetify/lib/util/colors'
 import 'vuetify/dist/vuetify.min.css'
+// import 'roboto-fontface/css/roboto/roboto-fontface.css' // 有引入字体报错
+// import '@mdi/font/css/materialdesignicons.css' // 有引入字体报错
+
+// element-ui
+import ElementUI from 'element-ui'
+// import 'element-ui/lib/theme-chalk/index.css' // 依然有引入字体的报错
 
 import './index.css'
 import App from './components/App'
 
 Vue.use(Vuetify)
+Vue.use(ElementUI)
 
 // eslint-disable-next-line no-new
 new Vue({
-  vuetify: new Vuetify({}),
+  vuetify: new Vuetify({
+    themes: {
+      dark: {
+        primary: colors.purple,
+        secondary: colors.grey.darken1,
+        accent: colors.shades.black,
+        error: colors.red.accent3
+      }
+    }
+  }),
   render: (h): VNode => h(App)
 }).$mount('#app')

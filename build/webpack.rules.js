@@ -47,5 +47,26 @@ module.exports = [
         }
       }
     ]
+  },
+  {
+    test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/i,
+    use: [
+      {
+        loader: 'url-loader',
+        options: {
+          limit: 4096 * 1024,
+          fallback: {
+            loader: 'file-loader',
+            options: {
+              name: 'fonts/[name].[hash:8].[ext]'
+            }
+          }
+        }
+        // loader: 'file-loader',
+        // options: {
+        //   name: 'fonts/[name].[ext]'
+        // }
+      }
+    ]
   }
 ]

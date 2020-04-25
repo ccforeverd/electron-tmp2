@@ -6,7 +6,7 @@
     "allowSyntheticDefaultImports": true,
     "jsx": "preserve",
     "allowJs": true,
-    "module": "commonjs",
+    "module": "esnext",
     "skipLibCheck": true,
     "esModuleInterop": true,
     "noImplicitAny": true,
@@ -17,6 +17,12 @@
     "resolveJsonModule": true,
     "experimentalDecorators": true,
     "types": [
+      "webpack-env",
+      "element-ui",
+      "vuetify"
+    ],
+    "typeRoots": [
+      "./node_modules/element-ui/types"
     ],
     "paths": {
       "*": [
