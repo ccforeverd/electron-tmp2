@@ -19,8 +19,8 @@
   {
     ...
     "extends": [
-      [-] "eslint:recommended",
-      [+] "standard",
+      [- "eslint:recommended", -]
+      [+ "standard", +]
       "plugin:@typescript-eslint/eslint-recommended",
       "plugin:@typescript-eslint/recommended",
       "plugin:import/errors",
@@ -52,10 +52,10 @@
       "@vue/babel-preset-jsx"
     ],
     "plugins": [
-      [-] "transform-decorators-legacy",
-      [-] "transform-class-properties"
-      [+] ["@babel/plugin-proposal-decorators", { "legacy": true }],
-      [+] ["@babel/plugin-proposal-class-properties", { "loose": true }]
+      [- "transform-decorators-legacy", -]
+      [- "transform-class-properties" -]
+      [+ ["@babel/plugin-proposal-decorators", { "legacy": true }], +]
+      [+ ["@babel/plugin-proposal-class-properties", { "loose": true }] +]
     ]
   }
   ```
@@ -72,22 +72,22 @@
 
   ``` js
   ...
-  [-] {
-  [-]   test: /\.tsx?$/,
-  [-]   exclude: /(node_modules|\.webpack)/,
-  [-]   use: {
-  [-]     loader: 'ts-loader',
-  [-]     options: {
-  [-]       transpileOnly: true
-  [-]     }
-  [-]   }
-  [-] },
-  [+] {
-  [+]   test: /\.tsx$/,
-  [+]   exclude: /(node_modules|\.webpack)/,
-  [+]   use: {
-  [+]     loader: 'babel-loader'
-  [+]   }
-  [+] }
+  [- { -]
+  [-   test: /\.tsx?$/, -]
+  [-   exclude: /(node_modules|\.webpack)/, -]
+  [-   use: { -]
+  [-     loader: 'ts-loader', -]
+  [-     options: { -]
+  [-       transpileOnly: true -]
+  [-     } -]
+  [-   } -]
+  [- }, -]
+  [+ { +]
+  [+   test: /\.tsx$/, +]
+  [+   exclude: /(node_modules|\.webpack)/, +]
+  [+   use: { +]
+  [+     loader: 'babel-loader' +]
+  [+   } +]
+  [+ } +]
   ...
   ```
