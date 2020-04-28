@@ -9,8 +9,9 @@ export function createWindow (): void {
     height: 600,
     width: 800,
     webPreferences: {
-      nodeIntegration: false,
+      nodeIntegration: true,
       webSecurity: true,
+      webviewTag: true,
       preload: TABS_WINDOW_PRELOAD_WEBPACK_ENTRY
     }
   })
