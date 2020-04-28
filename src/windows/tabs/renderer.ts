@@ -1,61 +1,58 @@
-/**
- * This file will automatically be loaded by webpack and run in the "renderer" context.
- * To learn more about the differences between the "main" and the "renderer" context in
- * Electron, visit:
- *
- * https://electronjs.org/docs/tutorial/application-architecture#main-and-renderer-processes
- *
- * By default, Node.js integration in this file is disabled. When enabling Node.js integration
- * in a renderer process, please be aware of potential security implications. You can read
- * more about security risks here:
- *
- * https://electronjs.org/docs/tutorial/security
- *
- * To enable Node.js integration in this file, open up `main.js` and enable the `nodeIntegration`
- * flag:
- *
- * ```
- *  // Create the browser window.
- *  mainWindow = new BrowserWindow({
- *    width: 800,
- *    height: 600,
- *    webPreferences: {
- *      nodeIntegration: true
- *    }
- *  });
- * ```
- */
-
-import Vue, { VNode } from 'vue'
-
-// vuetify
-import Vuetify from 'vuetify/lib'
-import colors from 'vuetify/lib/util/colors'
-import 'vuetify/dist/vuetify.min.css'
-// import 'roboto-fontface/css/roboto/roboto-fontface.css' // 有引入字体报错
-// import '@mdi/font/css/materialdesignicons.css' // 有引入字体报错
-
-// element-ui
-import ElementUI from 'element-ui'
-// import 'element-ui/lib/theme-chalk/index.css' // 依然有引入字体的报错
-
 import './index.css'
-import App from './components/App'
+import ElectronTabs from 'electron-tabs'
 
-Vue.use(Vuetify)
-Vue.use(ElementUI)
+const tabGroup = new ElectronTabs({
+  // newTab: {
+  //   title: 'New Tab'
+  // }
+})
 
-// eslint-disable-next-line no-new
-new Vue({
-  vuetify: new Vuetify({
-    themes: {
-      dark: {
-        primary: colors.purple,
-        secondary: colors.grey.darken1,
-        accent: colors.shades.black,
-        error: colors.red.accent3
+// tabGroup.addTab({
+//   title: 'Google',
+//   src: 'http://google.com'
+// })
+
+// tabGroup.addTab({
+//   title: 'Baidu',
+//   src: 'https://baidu.com'
+// })
+
+function createInterceptedTab (url: string): ElectronTabs.Tab {
+  const tab = tabGroup.addTab({
+    title: 'edu-back',
+    src: url,
+    visible: true,
+    active: true
+  })
+
+  tab.on('webview-dom-ready', tab => {
+    const { webview } = tab
+    let url = ''
+    // webview.addEventListener('will-navigate', (event: any) => {
+    //   console.log('will-navigate', event)
+    // })
+    // webview.addEventListener('will-navigate-in-page', (event: any) => {
+    //   console.log('will-navigate-in-page', event)
+    // })
+    // webview.addEventListener('did-navigate', (event: any) => {
+    //   console.log('did-navigate', event)
+    // })
+    webview.addEventListener('did-navigate-in-page', (event: any) => {
+      if (url) {
+        url = ''
+      } else {
+        url = event.url
+        setTimeout(() => {
+          createInterceptedTab(event.url)
+        })
       }
-    }
-  }),
-  render: (h): VNode => h(App)
-}).$mount('#app')
+      webview.goBack()
+      console.log('did-navigate-in-page', event)
+      // setTimeout(() => webview.goBack(), 1000)
+    })
+  })
+
+  return tab
+}
+
+createInterceptedTab('http://edu-back.wps.cn:3000')

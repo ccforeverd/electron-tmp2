@@ -65,7 +65,7 @@
                 },
                 {
                   "name": "tabs_window",
-                  "html": "./src/public/index.html",
+                  "html": "./src/windows/tabs/index.html",
                   "js": "./src/windows/tabs/renderer.ts",
                   "preload": {
                     "js": "./src/windows/tabs/preload.ts"
@@ -133,6 +133,7 @@
   "dependencies": {
     "@mdi/font": "^5.1.45",
     "electron-squirrel-startup": "^1.0.0",
+    "electron-tabs": "^0.15.0",
     "element-ui": "^2.13.1",
     "roboto-fontface": "^0.10.0",
     "vue": "^2.6.11",
