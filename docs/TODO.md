@@ -4,6 +4,7 @@
 - [x] add lint
 - [x] add pre-commit
 - [x] add lint-staged
-- [ ] add windows/tabs
-- [ ] add createWindow in all windows
-- [ ] add UI Vuetify
+- [x] add windows/tabs
+- [x] add createWindow in all windows
+- [x] add UI Vuetify
+  - [ ] typescript 报错处理
