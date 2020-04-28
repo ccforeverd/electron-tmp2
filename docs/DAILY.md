@@ -16,6 +16,7 @@
     - 对 `preload` 的支持很蛋疼, 要么无法引入, 要么没有编译
   - 对 `typescript` 的感想
     - 问题集中在使用 `.tsx` 并引入ui库时, 经常报类型错误
+    - 还没有搞定 `typescript with standard`
 
 ### 2020-04-28
 
